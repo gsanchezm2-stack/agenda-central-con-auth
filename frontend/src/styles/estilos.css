@@ -1,0 +1,66 @@
+:root{--tinta:#1B2236;--azul:#2347C5;--azul-osc:#17348F;--fondo:#F2F4F8;--panel:#fff;--linea:#CED5E2;--suave:#5A6580;--error:#B42318;--ok:#17714F;--aviso:#FFE9B8;--cancel:#FBD9D4}
+@media (prefers-color-scheme:dark){:root{--tinta:#E8ECF7;--azul:#8FA9FF;--azul-osc:#B7C6FF;--fondo:#10141F;--panel:#192033;--linea:#33405C;--suave:#A3AEC9;--error:#FF9C92;--ok:#6FD3A8;--aviso:#5A4A14;--cancel:#5B2A25}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--tinta);font:400 1rem/1.5 "Instrument Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Schibsted Grotesk","Instrument Sans",sans-serif;line-height:1.15;margin:0}
+.cabecera{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 2rem;padding:1.25rem clamp(1rem,4vw,3rem);border-bottom:1px solid var(--linea);background:var(--panel)}
+.cabecera h1{font-size:1.6rem;font-weight:800;color:var(--azul)}
+.nav{display:flex;gap:.25rem;flex-wrap:wrap}
+.nav button{font:600 .95rem "Instrument Sans",sans-serif;background:transparent;color:var(--suave);border:0;border-bottom:3px solid transparent;padding:.4rem .75rem;cursor:pointer}
+.nav button[aria-current=page]{color:var(--azul-osc);border-bottom-color:var(--azul)}
+.nav button:focus-visible,.btn:focus-visible,.slot:focus-visible{outline:3px solid var(--azul);outline-offset:1px}
+main{padding:1.5rem clamp(1rem,4vw,3rem) 3rem}
+.dos-col{display:grid;grid-template-columns:minmax(300px,380px) 1fr;gap:1.5rem;align-items:start}
+.panel,.lista,.tarjeta{background:var(--panel);border:1px solid var(--linea);border-radius:10px;padding:1.25rem}
+.panel{position:sticky;top:1rem}
+.panel h2,.lista h2,.tarjeta h2{font-size:1.35rem;margin-bottom:.9rem}
+.campo{margin-bottom:.9rem;min-width:0}
+label{display:block;font-weight:600;font-size:.92rem;margin-bottom:.25rem}
+.opc{font-weight:400;color:var(--suave);font-size:.82rem;margin-left:.25rem}
+input,select,textarea{width:100%;font:inherit;color:inherit;background:var(--panel);border:1.5px solid var(--linea);border-radius:6px;padding:.5rem .6rem}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--azul);outline-offset:1px}
+[aria-invalid=true]{border-color:var(--error)}
+.hint{display:block;color:var(--suave);font-size:.8rem;margin-top:.2rem}
+.error{display:block;color:var(--error);font-size:.84rem;font-weight:600;margin-top:.2rem}
+.error:empty{display:none}
+.acciones{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+.btn{font:600 .92rem "Instrument Sans",sans-serif;border:1.5px solid var(--azul);background:transparent;color:var(--azul-osc);border-radius:6px;padding:.5rem .95rem;cursor:pointer}
+.btn.primario{background:var(--azul);color:#fff}.btn.peligro{background:var(--error);border-color:var(--error);color:#fff}
+.btn.chico{padding:.25rem .6rem;font-size:.84rem}.btn:disabled{opacity:.6;cursor:wait}
+.barra{display:flex;justify-content:space-between;align-items:end;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
+.contador{font:500 .9rem "Instrument Sans",sans-serif;color:var(--suave)}
+.filtros{display:flex;gap:.5rem;flex-wrap:wrap;align-items:end}.filtros>div{min-width:130px}
+.filtros input,.filtros select{width:auto;min-width:130px}
+.envoltura{overflow-x:auto}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;font-size:.85rem;color:var(--suave);border-bottom:2px solid var(--linea);padding:.5rem}
+td{padding:.6rem .5rem;border-bottom:1px solid var(--linea);vertical-align:middle}
+.sub{display:block;color:var(--suave);font-size:.82rem}
+.chip{display:inline-block;border-radius:99px;padding:.1rem .6rem;font-size:.8rem;font-weight:600;background:var(--aviso)}
+.chip.Atendida,.chip.activo{background:var(--ok);color:#fff}.chip.Cancelada,.chip.inactivo{background:var(--cancel)}
+.celda-acc{display:flex;gap:.35rem;justify-content:flex-end;flex-wrap:wrap}
+.vacio{text-align:center;color:var(--suave);padding:2rem 1rem}
+.controles{display:flex;gap:1rem;flex-wrap:wrap;align-items:end;margin-bottom:1rem}.controles .campo{margin:0;min-width:180px}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:.5rem;margin-top:1rem}
+.slot{font:600 .95rem "Instrument Sans",sans-serif;display:flex;flex-direction:column;align-items:center;border:1.5px solid var(--azul);background:transparent;color:var(--azul-osc);border-radius:8px;padding:.4rem;cursor:pointer}
+.slot small{font-weight:400;color:var(--suave)}.slot:disabled{border-color:var(--linea);color:var(--suave);cursor:not-allowed;text-decoration:line-through}
+.horarios{display:grid;gap:.75rem}
+.dia{display:grid;grid-template-columns:110px repeat(4,minmax(110px,1fr)) auto;gap:.75rem;align-items:end;padding:.75rem;border:1px solid var(--linea);border-radius:8px}
+.dia h3{font-size:1.05rem;align-self:center}.dia .campo{margin:0}.dia .error{grid-column:1/-1}
+.cifras{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.75rem;margin:1rem 0}
+.cifra{border:1px solid var(--linea);border-radius:8px;padding:.75rem}.cifra b{display:block;font:800 1.6rem "Schibsted Grotesk",sans-serif}.cifra span{color:var(--suave);font-size:.85rem}
+.barra-dia{display:grid;grid-template-columns:130px 1fr 30px;gap:.6rem;align-items:center;font-size:.88rem;margin:.2rem 0}
+.barra-dia i{display:block;height:12px;background:var(--azul);border-radius:3px}
+.dos{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+dialog{border:1px solid var(--linea);border-radius:10px;background:var(--panel);color:var(--tinta);width:min(440px,92vw);padding:1.25rem}
+dialog::backdrop{background:rgba(0,0,0,.45)}dialog h3{font-size:1.25rem;margin-bottom:.5rem}
+.toast{position:fixed;left:50%;bottom:1.25rem;transform:translateX(-50%);background:var(--ok);color:#fff;padding:.7rem 1.1rem;border-radius:8px;font-weight:600;max-width:92vw;z-index:10}
+.toast.mal{background:var(--error)}
+@media (max-width:900px){.dos-col{grid-template-columns:1fr}.panel{position:static}
+ .dia{grid-template-columns:1fr 1fr}.dia h3{grid-column:1/-1}
+ .tabla-cards thead{display:none}.tabla-cards tr{display:block;border-bottom:2px solid var(--linea);padding:.5rem 0}
+ .tabla-cards td{display:flex;justify-content:space-between;gap:1rem;border:0;padding:.25rem}
+ .tabla-cards td::before{content:attr(data-label);font-weight:600;color:var(--suave)}.tabla-cards td.acc::before{content:none}.celda-acc{justify-content:flex-start}}
+@media (prefers-reduced-motion:no-preference){.toast{animation:sube .2s ease-out}@keyframes sube{from{opacity:0;transform:translate(-50%,8px)}}}
+[hidden]{display:none!important}
+main{min-height:60vh}

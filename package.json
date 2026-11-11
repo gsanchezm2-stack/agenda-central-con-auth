@@ -1,0 +1,10 @@
+{
+  "name": "agenda-central",
+  "private": true,
+  "scripts": {
+    "instalar": "npm --prefix backend install && npm --prefix frontend install",
+    "build": "npm --prefix frontend run build",
+    "start": "npm --prefix backend start",
+    "seed": "npm --prefix backend run seed"
+  }
+}
